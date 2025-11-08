@@ -1,18 +1,18 @@
+
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consulta de Calificaciones</title>
+  <title>Consulta de Calificaciones 2P 5K</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="description" content="Consulta de porcentajes por matrícula" />
 </head>
 <body class="min-h-screen bg-slate-50 text-slate-800">
   <header class="max-w-3xl mx-auto px-4 pt-10 pb-4">
-    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Consulta de Calificaciones</h1>
+    <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Consulta de Calificaciones2P 5K</h1>
     <p class="mt-2 text-sm text-slate-600">Escribe tu <span class="font-semibold">número de matrícula</span>.</p>
   </header>
-
   <main class="max-w-3xl mx-auto px-4 pb-16">
     <div class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-200 p-5 sm:p-6">
       <form id="form" class="flex flex-col sm:flex-row gap-3 items-stretch sm:items-end">
@@ -20,371 +20,342 @@
           <label for="matricula" class="block text-sm font-medium text-slate-700">Matrícula</label>
           <input id="matricula" name="matricula" type="number" autocomplete="off"
                  class="mt-1 w-full rounded-xl border-slate-300 focus:border-indigo-500 focus:ring-indigo-500 px-4 py-2.5"
-                 placeholder="Ej. 202500123" required>
+                 placeholder="Ej. 23330061340646" required>
         </div>
         <button type="submit" id="btnBuscar"
                 class="rounded-xl px-5 py-2.5 font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm">
           Consultar
         </button>
       </form>
-
       <div id="resultado" class="mt-6 hidden">
         <div id="card" class="rounded-2xl border border-slate-200 bg-slate-50 p-5"></div>
       </div>
-
       <div id="mensaje" class="mt-6 hidden"></div>
-
       <p class="mt-8 text-xs text-slate-500">Última actualización: <span id="ultima"></span></p>
     </div>
   </main>
-
   <footer class="max-w-3xl mx-auto px-4 pb-8 text-center text-xs text-slate-500">
     Hecho con HTML + Tailwind + JavaScript. Sitio 100% estático.
   </footer>
-
   <script>
-    // DATA generado automáticamente desde tu CSV
     let DATA = {
   "23330061340646": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 31.3,
-    "calificacion": 81.3
+    "posttest": 63.33,
+    "calificacion": 113.33
   },
   "23330061340362": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
+    "posttest": 59.17,
+    "calificacion": 109.17
   },
   "23330061340363": {
     "apuntes": 0.0,
     "tarea": 0.0,
     "test": 0.0,
-    "posttest": 6.3,
-    "calificacion": 6.3
+    "posttest": 17.5,
+    "calificacion": 17.5
   },
   "23330061340364": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 37.5,
-    "calificacion": 87.5
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
   "23330061340647": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 37.5,
-    "calificacion": 87.5
+    "posttest": 59.17,
+    "calificacion": 109.17
   },
   "23330061340366": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
+    "posttest": 55.0,
+    "calificacion": 105.0
   },
   "23330061340367": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 31.3,
-    "calificacion": 81.3
+    "test": 0.0,
+    "posttest": 46.67,
+    "calificacion": 76.67
   },
   "23330061340368": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
+    "apuntes": 5.0,
+    "tarea": 10.0,
     "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
+    "posttest": 30.0,
+    "calificacion": 65.0
   },
   "23330061340369": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 31.3,
-    "calificacion": 81.3
+    "posttest": 50.83,
+    "calificacion": 100.83
   },
   "23330061340370": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 25.0,
-    "calificacion": 75.0
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
   "23330061340371": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
+    "posttest": 21.67,
+    "calificacion": 71.67
   },
   "23330061340372": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 68.8
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
   "23330061340373": {
-    "apuntes": 5.0,
-    "tarea": 10.0,
-    "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 35.0
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 0.0,
+    "posttest": 50.83,
+    "calificacion": 80.83
   },
   "23330061340374": {
     "apuntes": 10.0,
-    "tarea": 0.0,
-    "test": 10.0,
-    "posttest": 18.8,
-    "calificacion": 38.8
+    "tarea": 20.0,
+    "test": 0.0,
+    "posttest": 46.67,
+    "calificacion": 76.67
   },
   "23329052110106": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 56.3,
-    "calificacion": 106.3
+    "posttest": 55.0,
+    "calificacion": 105.0
   },
   "23330061340376": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 25.0,
-    "calificacion": 75.0
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
   "23330061340377": {
-    "apuntes": 5.0,
+    "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 63.8
+    "posttest": 34.17,
+    "calificacion": 84.17
   },
   "23330061340379": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 68.8
+    "posttest": 25.83,
+    "calificacion": 75.83
   },
   "23330061340380": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 32.5
-  },
-  "23330061340381": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
+    "posttest": 46.67,
+    "calificacion": 96.67
   },
   "23330061340382": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
+    "posttest": 25.83,
+    "calificacion": 75.83
   },
   "23330061340383": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 25.0,
-    "calificacion": 75.0
+    "test": 0.0,
+    "posttest": 59.17,
+    "calificacion": 89.17
   },
   "23330061340384": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 15.0,
-    "posttest": 18.8,
-    "calificacion": 63.8
+    "test": 20.0,
+    "posttest": 63.33,
+    "calificacion": 113.33
   },
   "23330061340385": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 25.0,
-    "calificacion": 75.0
+    "posttest": 59.17,
+    "calificacion": 109.17
   },
   "23330061340386": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 31.3,
-    "calificacion": 81.3
+    "posttest": 59.17,
+    "calificacion": 109.17
   },
   "23330061340387": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
   "23330061340388": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
-  "23330061340389": {
+  "23330061340391": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
-  },
-  "23330061340391": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 10.0,
-    "posttest": 0.0,
-    "calificacion": 10.0
+    "posttest": 5.0,
+    "calificacion": 55.0
   },
   "23330061340394": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 68.8
+    "test": 0.0,
+    "posttest": 46.67,
+    "calificacion": 76.67
   },
   "23330061340392": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
+    "posttest": 25.83,
+    "calificacion": 75.83
   },
   "23330061340393": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
+    "posttest": 59.17,
+    "calificacion": 109.17
   },
   "23330061340648": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 68.8
+    "posttest": 38.33,
+    "calificacion": 88.33
   },
   "23330061340395": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 0.0,
-    "posttest": 18.8,
-    "calificacion": 48.8
+    "test": 20.0,
+    "posttest": 25.83,
+    "calificacion": 75.83
   },
   "23330061340649": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
-  },
-  "23330061340396": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
+    "posttest": 59.17,
+    "calificacion": 109.17
   },
   "23330061340397": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 68.8
+    "posttest": 46.67,
+    "calificacion": 96.67
   },
   "23330061340398": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
+    "test": 0.0,
+    "posttest": 42.5,
+    "calificacion": 72.5
   },
   "23330061340399": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 0.0,
-    "calificacion": 50.0
+    "apuntes": 0.0,
+    "tarea": 0.0,
+    "test": 0.0,
+    "posttest": 5.0,
+    "calificacion": 5.0
   },
   "23330061340400": {
     "apuntes": 0.0,
     "tarea": 0.0,
-    "test": 10.0,
-    "posttest": 0.0,
-    "calificacion": 10.0
+    "test": 0.0,
+    "posttest": 5.0,
+    "calificacion": 5.0
   },
   "23330061340403": {
     "apuntes": 0.0,
     "tarea": 0.0,
-    "test": 0.0,
-    "posttest": 0.0,
-    "calificacion": 0.0
+    "test": 20.0,
+    "posttest": 5.0,
+    "calificacion": 25.0
   },
   "23330061340405": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 25.0,
-    "calificacion": 75.0
+    "posttest": 46.67,
+    "calificacion": 96.67
   },
   "23330061340407": {
-    "apuntes": 0.0,
-    "tarea": 0.0,
-    "test": 20.0,
-    "posttest": 43.75,
-    "calificacion": 63.75
+    "apuntes": 10.0,
+    "tarea": 20.0,
+    "test": 0.0,
+    "posttest": 50.83,
+    "calificacion": 80.83
   },
   "23230030070620": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 25.0,
-    "calificacion": 75.0
+    "posttest": 30.0,
+    "calificacion": 80.0
   },
   "23330061340409": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 68.8
+    "posttest": 46.67,
+    "calificacion": 96.67
   },
   "23330061340410": {
     "apuntes": 10.0,
     "tarea": 20.0,
-    "test": 15.0,
-    "posttest": 0.0,
-    "calificacion": 45.0
+    "test": 20.0,
+    "posttest": 59.17,
+    "calificacion": 109.17
   },
   "23330061340411": {
-    "apuntes": 10.0,
-    "tarea": 20.0,
-    "test": 20.0,
-    "posttest": 18.8,
-    "calificacion": 68.8
+    "apuntes": 0.0,
+    "tarea": 0.0,
+    "test": 0.0,
+    "posttest": NaN,
+    "calificacion": NaN
   },
   "23330061340412": {
     "apuntes": 10.0,
     "tarea": 20.0,
     "test": 20.0,
-    "posttest": 12.5,
-    "calificacion": 62.5
+    "posttest": 34.17,
+    "calificacion": 84.17
   }
 };
-
     const LAST_UPDATED = new Date().toLocaleString();
-
     const form = document.getElementById('form');
     const input = document.getElementById('matricula');
     const resultado = document.getElementById('resultado');
@@ -430,7 +401,6 @@
           </div>
         </div>
       `;
-
       resultado.classList.remove('hidden');
     }
 
